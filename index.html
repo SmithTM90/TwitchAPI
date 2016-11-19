@@ -25,9 +25,10 @@
 			<form ng-submit="Search()">
 				<input class="search text-center" ng-model="channel" placeholder="Search" type="search">
 			</form>
+			<div class="well" ng-repeat="obj in streamList">
+				<h4>title:{{obj}}</h4>
+			</div>
 		</div>
-
-		<!-- <p>response:{{res}}</p> -->
 		
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
