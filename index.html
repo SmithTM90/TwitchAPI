@@ -19,16 +19,44 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	</head>
 	<body ng-app="TwitchList">
-		<h1 class="text-center">Hello Twitch</h1>
-		
-		<div ng-controller="TwitchCtrl">
-			<form ng-submit="Search()">
-				<input class="search text-center" ng-model="channel" placeholder="Search" type="search">
-			</form>
-			<div class="well" ng-repeat="obj in streamList">
-				<h4>title:{{obj}}</h4>
-			</div>
-		</div>
+		<div class="col-xs-12" ng-controller="TwitchCtrl">
+    <!-- <div class="col-xs-12"> -->
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="title row">
+          <span class="col-xs-2 btnSpan">
+            <button class="btn btn-success titleBtn" ng-click="online()">Online</button>
+            <button class="btn btn-danger titleBtn" ng-click="offline()">Offline</button>
+            <button class="btn btn-info titleBtn" ng-click="all()">All</button>
+          </span>
+          <span class="col-xs-6">
+            <h1 class="titleText">Twitch Streams</h1>  
+          </span>
+          <span class="col-xs-2">
+            <form ng-submit="Search()">
+              <input ng-model="channel" type="search" placeholder="Add Twitch Stream">
+            </form>
+          </span>
+        </div>
+        <div class="row stream" ng-repeat="obj in fullStreams | filter: filter">
+          <div class="col-xs-2">
+            <img src="{{obj.img}}">
+          </div>
+          <div class="col-xs-4">
+            <h2>{{obj.streamTitle}}</h2>   
+          </div>
+          <div class="col-xs-3">
+           <h2 ng-if="obj.status === 'Offline'" class="offline">{{obj.status}}</h2>
+           <h3 ng-if="obj.status === 'Online'" class="online">Game: {{obj.data.stream.game}}<br><a href="https://www.twitch.tv/{{obj.streamTitle}}">Status: {{obj.status}}</a></h3>
+           <h3 ng-if="obj.status === 'Not Found!'" class="notFound">{{obj.status}}</h3>
+          </div>
+          <div class="col-xs-1">
+            <button class="btn btn-danger deleteBtn" ng-click="deleteItem($index)">X</button>
+          </div>
+        </div>
+        <div id="player1"></div>
+      </div>
+    <!-- </div> -->
+   </div>
 		
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>

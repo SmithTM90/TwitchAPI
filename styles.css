@@ -1,0 +1,17 @@
+img {
+	width: 100px;
+	height: 100px;
+}
+
+/*div {
+	border: 1px solid black;
+}
+
+span {
+	border: 1px solid black;
+}*/
+
+.stream {
+	background-color: olive;
+	margin-top: 7px;
+}
