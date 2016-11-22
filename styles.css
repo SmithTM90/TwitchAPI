@@ -1,6 +1,15 @@
+body {
+	margin-top: 5%;
+	background-color: #D9B596;
+	color: #eef;
+	font-family: 'Work Sans', sans-serif;
+}
+
 img {
-	width: 100px;
-	height: 100px;
+	margin-top: 2%;
+	width: 75px;
+	height: 75px;
+	border-radius: 100%;
 }
 
 /*div {
@@ -11,13 +20,43 @@ span {
 	border: 1px solid black;
 }*/
 
+a {
+	text-decoration: none;
+	border: none;
+	color: inherit;
+}
+
+button {
+	border-radius: 0px;
+	text-decoration: none;
+	border: none;
+}
+
+
 input {
 	margin-top: 15%;
+	border-radius: 0px;
+	text-decoration: none;
+	border: 1px solid grey;
+	padding-left: 2%;
+}
+
+.titleText {
+	font-family: 'Black Ops One', cursive;
+	letter-spacing: 2px;
+}
+
+.title {
+	background-color: #2A333A;
 }
 
 .stream {
-	background-color: olive;
+	background-color: #848C65;
 	margin-top: 7px;
+}
+
+.statusDiv {
+	text-align: center;
 }
 
 .btnSpan {
@@ -26,4 +65,9 @@ input {
 
 .deleteDiv {
 	margin-top: 2%;
+}
+
+#footerDiv {
+	height: 10px;
+	background-color: #2A333A;
 }

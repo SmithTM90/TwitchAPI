@@ -8,6 +8,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Work+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="styles.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,20 +21,19 @@
 	</head>
 	<body ng-app="TwitchList">
 		<div class="col-xs-12" ng-controller="TwitchCtrl">
-    <!-- <div class="col-xs-12"> -->
-      <div class="col-xs-10 col-xs-offset-1">
+      <div class="col-xs-8 col-xs-offset-2">
         <div class="title row">
           <span class="col-xs-4 btnSpan">
-            <button class="btn btn-success titleBtn" ng-click="online()">Online</button>
-            <button class="btn btn-danger titleBtn" ng-click="offline()">Offline</button>
-            <button class="btn btn-info titleBtn" ng-click="all()">All</button>
+            <button class="btn-success titleBtn" ng-click="online()">Online</button>
+            <button class="btn-danger titleBtn" ng-click="offline()">Offline</button>
+            <button class="btn-info titleBtn" ng-click="all()">All</button>
           </span>
           <span class="col-xs-5">
             <h1 class="titleText">Twitch Streams</h1>  
           </span>
           <span class="col-xs-2">
             <form ng-submit="Search()">
-              <input ng-model="channel" type="search" placeholder="Add Twitch Stream">
+              <input ng-model="channel" type="search" placeholder="Add Stream">
             </form>
           </span>
         </div>
@@ -41,21 +41,20 @@
           <div class="col-xs-2">
             <img src="{{obj.img}}">
           </div>
-          <div class="col-xs-5">
-            <h2>{{obj.streamTitle}}</h2>   
-          </div>
           <div class="col-xs-4">
-           <h2 ng-if="obj.status === 'Offline'" class="offline">{{obj.status}}</h2>
-           <h3 ng-if="obj.status === 'Online'" class="online">Game: {{obj.data.stream.game}}<br><a href="https://www.twitch.tv/{{obj.streamTitle}}">{{obj.status}}</a></h3>
-           <h3 ng-if="obj.status === 'Not Found!'" class="notFound">{{obj.status}}</h3>
+            <h3><a href="https://www.twitch.tv/{{obj.streamTitle}}">{{obj.streamTitle}}</a></h3>   
+          </div>
+          <div class="col-xs-4 statusDiv">
+           <h4 ng-if="obj.status === 'Offline'" class="offline">{{obj.status}}</h4>
+           <h4 ng-if="obj.status === 'Online'" class="online"><a href="https://www.twitch.tv/{{obj.streamTitle}}">{{obj.status}}</a><br>Game: {{obj.data.stream.game}}</h4>
+           <h4 ng-if="obj.status === 'Not Found!'" class="notFound">{{obj.status}}</h4>
           </div>
           <div class="col-xs-1 deleteDiv">
-            <button class="btn btn-danger deleteBtn" ng-click="deleteItem($index)">X</button>
+            <button class="btn-danger deleteBtn" ng-click="deleteItem($index)">Remove</button>
           </div>
         </div>
-        <div id="player1"></div>
       </div>
-    <!-- </div> -->
+      <div class="col-xs-8 col-xs-offset-2" id="footerDiv"></div>
    </div>
 		
 		<!-- jQuery -->

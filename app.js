@@ -2,7 +2,7 @@ TwitchList = angular.module('TwitchList', [])
 
 TwitchList.controller('TwitchCtrl', ['$scope', '$http', function($scope, $http) {
 
-	$scope.streamList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
+	$scope.streamList = ["ESL_SC2", "OgamingSC2", "freecodecamp"]
 
 	$scope.fullStreams = [];
 	$scope.counter = 0;
